@@ -31,7 +31,7 @@
 						</div>
 						<div class="col-8">
 							<div class="card-body">
-								<p class="card-text"> Pseudo : {{player.pseudo}} </p>
+								<p class="card-text"><a href="{{path('afficher_personnage',{'id': player.id})}}"> Pseudo : {{player.pseudo}} </a> </p>
 								<p class="card-text"> Age :  {{player.age}} </p>
 								<p class="card-text"> Sexe : 
 									{% if (player.sexe) %} 

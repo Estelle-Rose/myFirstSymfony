@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ player.pseudo}}
+{% endblock %}
+{% block pageTitle %}{{player.pseudo}}
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-12">
+				 <div class="card mb-3" style="width: 100%;">
+					<div class="row ">
+						<div class="col-4">
+							<img src="{{ asset('images/personnages/'~player.image)}}" alt=""  class="rounded img-thumbnail p-2">
+
+						</div>
+					
+						<div class="col-8">
+							<div class="card-body">
+								
+								<p class="card-text"> {{player.bio}} </p>
+							</div>
+						</div>
+					</div> 
+				</div>
+			</div>
+		
+		</div>
+
+
+	</div>
+{% endblock %}
+
