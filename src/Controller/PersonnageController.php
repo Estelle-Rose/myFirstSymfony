@@ -22,6 +22,7 @@ class PersonnageController extends AbstractController
             'pseudo' => "Bartolomé Ortiz ",
              'image' => 'bartolome_ortiz.png',
              'age' => 35,
+             'sexe' => 1,
              'carac'=> [
                  'force'=> 5,
                  'discretion' => 2,
@@ -33,6 +34,7 @@ class PersonnageController extends AbstractController
             'pseudo' => "Aguilar de Nehra ",
              'image' => 'aguilar_de_nehra.png',
              'age' => 28,
+             'sexe' => 1,
              'carac'=> [
                  'force'=> 3,
                  'discretion' => 3,
@@ -44,6 +46,7 @@ class PersonnageController extends AbstractController
             'pseudo' => "Maria ",
              'image' => 'maria.png',
              'age' => 24,
+             'sexe' => 0,
              'carac'=> [
                  'force'=> 2,
                  'discretion' => 5,
@@ -55,6 +58,7 @@ class PersonnageController extends AbstractController
             'pseudo' => "Shao Jun ",
              'image' => 'shao_jun.png',
              'age' => 21,
+             'sexe' => 0,
              'carac'=> [
                  'force'=> 4,
                  'discretion' => 2,

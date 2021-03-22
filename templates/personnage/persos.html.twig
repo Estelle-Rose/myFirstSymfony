@@ -24,18 +24,25 @@
 			{% for player in players %}
 			<div class="col-12 col-md-6">
 				<div class="card mb-3" style="max-width: 600px;">
-					<div class="row g-0">
-						<div class="col-md-4">
-							<img src="{{ asset('images/personnages/'~player.image)}}" alt=""  class="rounded img-thumbnail img-fluid p-2">
+					<div class="row ">
+						<div class="col-4">
+							<img src="{{ asset('images/personnages/'~player.image)}}" alt=""  class="rounded img-thumbnail p-2">
 
 						</div>
-						<div class="col-md-8">
+						<div class="col-8">
 							<div class="card-body">
-								<div> Pseudo : {{player.pseudo}} </div>
-								<div> Age :  {{player.age}} </div>
-								<div> Force : {{player.carac.force}} </div>
-								<div> Discrétion : {{player.carac.discretion}} </div>
-								<div> Arme : {{player.carac.arme}} </div>
+								<p class="card-text"> Pseudo : {{player.pseudo}} </p>
+								<p class="card-text"> Age :  {{player.age}} </p>
+								<p class="card-text"> Sexe : 
+									{% if (player.sexe) %} 
+									Homme
+									{% else %}
+									Femme
+									{% endif %}
+								</p>
+								<p class="card-text"> Force : {{player.carac.force}} </p>
+								<p class="card-text"> Discrétion : {{player.carac.discretion}} </p>
+								<p class="card-text"> Arme : {{player.carac.arme}} </p>
 							</div>
 						</div>
 					</div>
