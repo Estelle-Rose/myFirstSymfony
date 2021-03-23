@@ -7,6 +7,9 @@
 <style>
     .example-wrapper { margin: 3em auto; max-width: 1140px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	.card {
+        border-radius: 5px !important;
+    }
 </style>
 
 <div class="example-wrapper">
@@ -14,7 +17,7 @@
 		<div class="row">
 			{% for arme in armes %}
 			<div class="col-12 col-md-6">
-				<div class="card mb-3" style="max-width: 600px;">
+				<div class="card border-success mb-3" style="max-width: 600px;">
 					<div class="row ">
 						<div class="col-4">
 							<img src="{{ asset('images/armes/'~arme.image)}}" alt=""  class="rounded img-thumbnail p-2">

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des animaux{% endblock %}
+{% block pageTitle %}Voici la liste des animaux !{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 840px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code {  padding: 2px 6px; }
+    .card {
+        border-radius: 5px !important;
+    }
+</style>
+
+<div class="example-wrapper">
+   {% for animal in animals %}
+    <div class="card border-success mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-body">
+                    <img src="{{ asset('images/animaux/'~animal.image)}}" alt="">
+                </div>
+                
+            </div>
+            <div class="col-md-8">
+                    <h3 class="card-header">{{animal.nom}}</h3>
+                     <div class="card-body">
+                        <p class="card-text">{{animal.description}}</p>
+                    </div>          
+                    <div class="card-body">
+                        <a href="{{path('animal',{'id': animal.id})}}" class="card-link">Fiche de l'animal</a>
+                    
+                    </div>
+                </div>
+            </div>
+            
+           
+            
+            
+
+    </div>
+
+
+   {% endfor %}
+
+   
+</div>
+{% endblock %}
