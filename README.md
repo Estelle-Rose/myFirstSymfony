@@ -6,4 +6,4 @@ Mon apprentissage de Symfony
 ## Branche animals
 * Utiliser l'ORM Doctrine
 * Xampp / Mysql
-* Afficher une liste d'animaux avec BDD
+* Afficher une liste d'animaux avec BDDadd .
