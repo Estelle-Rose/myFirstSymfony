@@ -10,18 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PersonnageController extends AbstractController
 {
-    #[Route('/', name: 'accueil')] //
-    public function index(): Response
-    {
-        return $this->render('personnage/index.html.twig' );
-    }
+    
 
     #[Route('/persos', name: 'personnages')] //
     public function persos(): Response
     {
         Personnage::createPlayer();
         
-        return $this->render('personnage/persos.html.twig', [                      
+        return $this->render('personnage/index.html.twig', [                      
              'players' => Personnage::$players            
         ]);
     }

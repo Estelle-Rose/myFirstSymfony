@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L'arme : {{ arme.name}}
+{% endblock %}
+{% block pageTitle %} L'arme : {{ arme.name}}
+{% endblock %}
+
+{% block body %}
+<style>
+    .container {
+        max-width: 600px !important;
+    }
+</style>
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-12">
+				 <div class="card mb-3" style="width: 100%;">
+					<div class="row ">
+						<div class="col-4">
+							<img src="{{ asset('images/armes/'~arme.image)}}" alt=""  class="rounded img-thumbnail p-2">
+
+						</div>
+					
+						<div class="col-8">
+							<div class="card-body">
+								
+								<p class="card-text"> {{arme.bio}} </p>
+								<p class="card-text"> Attaque : {{arme.attack}} </p>
+								<p class="card-text"> Vitesse : {{arme.speed}} </p>
+								<p class="card-text"> Poids : {{arme.weight}} </p>
+							
+							</div>
+						</div>
+					</div> 
+				</div>
+			</div>
+		
+		</div>
+
+
+	</div>
+
+
+{% endblock %}
