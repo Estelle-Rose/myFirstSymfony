@@ -10,14 +10,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PersonnageController extends AbstractController
 {
-    
-
-    #[Route('/persos', name: 'personnages')] //
+    #[Route('/persos', name: 'assassins')] //
+    public function index(): Response
+    {
+        Personnage::createPlayer();
+        
+        return $this->render('personnage/index.html.twig');
+    }
+    #[Route('/persos/liste', name: 'personnages')] //
     public function persos(): Response
     {
         Personnage::createPlayer();
         
-        return $this->render('personnage/index.html.twig', [                      
+        return $this->render('personnage/persos.html.twig', [                      
              'players' => Personnage::$players            
         ]);
     }

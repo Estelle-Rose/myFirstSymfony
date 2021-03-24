@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les personnages
+{% endblock %}
+{% block pageTitle %}Liste des personnages !
+{% endblock %}
+
+{% block body %}
+	<style>
+		.card {
+				border-radius: 5px !important;
+			}
+	</style>
+
+	<div class="container">
+		<div class="row">
+			{% for player in players %}
+			<div class="col-12 col-md-6">
+				<div class="card border-success mb-3" style="max-width: 600px;">
+					<div class="row ">
+						<div class="col-4">
+							<img src="{{ asset('images/personnages/'~player.image)}}" alt=""  class="rounded img-thumbnail p-2">
+
+						</div>
+						<div class="col-8">
+							<div class="card-body">
+								<p class="card-text"><a href="{{path('afficher_personnage',{'id': player.id})}}"> Pseudo : {{player.pseudo}} </a> </p>
+								<p class="card-text"> Age :  {{player.age}} </p>
+								<p class="card-text"> Sexe : 
+									{% if (player.sexe) %} 
+									Homme
+									{% else %}
+									Femme
+									{% endif %}
+								</p>
+								<p class="card-text"> Force : {{player.carac.force}} </p>
+								<p class="card-text"> Discrétion : {{player.carac.discretion}} </p>
+								<p class="card-text"> Arme : {{player.carac.arme}} </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			{% endfor %}
+		</div>
+
+
+	</div>
+{% endblock %}
+

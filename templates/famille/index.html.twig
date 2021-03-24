@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les familles
+{% endblock %}
+{% block pageTitle %}Voici la liste des familles d'animaux !
+{% endblock %}
+
+{% block body %}
+	<style>
+		.card {
+				border-radius: 5px !important;
+			}
+	</style>
+
+	<div class="container">
+		<div class="row">
+			{% for famille in familles %}
+			<div class="col-12 col-md-6">
+				<div class="card border-success p-3 mb-3" style="max-width: 600px;">
+                    <div class="card-title">
+                        <h2> {{famille.libelle|capitalize}} </h2>
+                    </div>
+                    <div class="card-body pl-0">
+                    
+                        <p class="card-text ">{{famille.description}} </p>
+						<div class="row">
+							{%  for animal in famille.animaux %}
+							
+							<div class="col-12 col-md-6">
+								<div class="card p-1 bg-info my-2">
+									<div class="card-image mx-auto">
+										<img src="{{asset('images/animaux/'~animal.image)}}" alt="{animal.nom}" style="width:150px;height:150px;" class="img-fluid p-2">
+									</div>
+									<div class="card-title">
+										<h3 class="text-center"> <a href="{{path('animal', {'id': animal.id})}}">{{ animal.nom}}</h3></a>
+									</div>
+									<div class="card-body">
+									<p class="card-text text-center text-dark">{{ animal.description}}</p>
+									</div>
+								</div>
+								
+							</div>
+							{% endfor %}
+					</div>
+                    
+                    </div>
+			
+				</div>
+			</div>
+				
+			{% endfor %}
+		</div>
+
+
+	</div>
+{% endblock %}
+
+

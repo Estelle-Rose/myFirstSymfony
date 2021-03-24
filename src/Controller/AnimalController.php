@@ -9,12 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AnimalController extends AbstractController
 {
-    #[Route('/animal', name: 'animals')]
-    public function index(AnimalRepository $repository): Response
+    #[Route('/animal', name: 'accueil_animaux')]
+    public function index(): Response
+    {
+        return $this->render('animal/index.html.twig');
+    }
+    #[Route('/animal/animals', name: 'animals')]
+    public function getAnimaux(AnimalRepository $repository): Response
     {
         
         $animaux = $repository->findAll(); // on recupère les animaux de la bdd
-        return $this->render('animal/index.html.twig', [
+        return $this->render('animal/animals.html.twig', [
             'animals' => $animaux
         ]);
     }
