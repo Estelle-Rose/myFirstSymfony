@@ -14,8 +14,8 @@
 </style>
 
 <div class="example-wrapper">
+    <a href="{{path('low-calories', {'calorie': 50})}}"> Les aliments avec moins de 50kcal</a>
    <div class="row">
-
        {% for aliment in aliments %}
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card border-info mb-3 mx-auto" style="max-width: 20rem;">
@@ -29,7 +29,7 @@
                     </a>
                 </h2>
                 <hr class="divider  bg-light"/>
-                <p class="font-weight-blod lead text-center">Prix (kilo) : {{ aliment.prix }}€</p>
+                <p class="font-weight-blod lead text-center">Prix (kilo) : {{ aliment.prix }} €</p>
             </div>
 
             <div class="card-body">

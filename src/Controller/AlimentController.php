@@ -26,6 +26,15 @@ class AlimentController extends AbstractController
             'aliments' => $aliments
         ]);
     }
+    #[Route('/aliments/{calorie}', name: 'low-calories')]
+    public function getAlimentsLowCalories(AlimentRepository $repository , $calorie): Response
+    {
+        $aliments = $repository->findByCaloriesNb($calorie);
+        return $this->render('aliment/aliments.html.twig', [
+            'page_title' => 'Les aliments contenantt moins de 50kcal',
+            'aliments' => $aliments
+        ]);
+    }
     #[Route('/aliments/{id}', name: 'aliment')]
     public function getVeggie(Aliment $aliment): Response
     {
