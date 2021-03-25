@@ -7,12 +7,23 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .btn {
+        border-radius: 5px !important;
+    }
 </style>
 <div class="container-fluid ">
     
 <div class="container ">
     <img src="{{ asset('/images/personnages/fond_ass_rebellion.png') }}" alt="" style="width:100%;max-height:350px;" class="mx-auto rounded img-fluid">
-
+     <div class="row g-0 mx-auto">
+     <div class="col-6 col-md-4 mx-auto mt-5">
+         <a href="{{ path('personnages')}}" class="btn btn-outline-primary">Liste des personnages</a>
+     </div>
+     <div class="col-6 col-md-4 mx-auto mt-5">
+         <a href="{{ path('weapons')}}" class="btn btn-outline-primary">Liste des armes</a>
+     </div>
+     
+ </div>
 </div>
 </div>
 {% endblock %}
