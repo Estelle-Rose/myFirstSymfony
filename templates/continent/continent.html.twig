@@ -42,7 +42,7 @@
 										<p class="card-text text-center">Continents où l'animal est également présent :</p>
 										<div class="row g-0 ">
 										{% for value in animal.continents %}
-										{% if (continent.libelle != value.libelle) %}
+										{% if (continent.id != value.id) %}
 											<div class="col-6 text-center mx-auto">
 												<a href="{{path('continent', {'id': value.id})}}" class="btn btn-outline-primary m-1">{{ value.libelle}}</a>
 
