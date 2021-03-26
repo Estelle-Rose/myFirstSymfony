@@ -1,7 +1,7 @@
 #My first symfony app
-Mon apprentissage de Symfony avec différents objectifs à accomplir par branche : 
+Mon apprentissage de Symfony avec différents objectifs à accomplir  : 
 
-## Branche main
+## Bloc personnages
 * Réviser les bases de PHP
 * Réviser les bases de POO
 * Revoir le modèle MVC
@@ -9,12 +9,12 @@ Mon apprentissage de Symfony avec différents objectifs à accomplir par branche
 - Utiliser les routes  
 - Utiliser le système de template Twig  
 - Comprendre l'architecture globale du framework 
-## Branche animals
+## Bloc animalerie
 * Créer une application utilisant une base de données
 * Utiliser le système de BDD de Symfony (Doctrine + Fixtures)
 * Afficher des éléments d'une BDD
 
-## Branche food
+## Bloc épicerie
 * Mettre en application les notions précédentes
 * Utilisation avancée de doctrine et des repositories
 * Mise en place d'un CRUD
@@ -24,7 +24,7 @@ Mon apprentissage de Symfony avec différents objectifs à accomplir par branche
 * Ajout de la partie authentification
 * Ajout d'une gestion basique de rôle
 
-## Branche cars
+## Bloc cars
 * Réaliser une pagination
 * Ajouter des filtres
 * Réaliser un site à partir d'une spécification basique

@@ -31,7 +31,7 @@ class AlimentController extends AbstractController
     {
         $aliments = $repository->findByCaloriesNb($calorie);
         return $this->render('aliment/aliments.html.twig', [
-            'page_title' => 'Les aliments contenantt moins de 50kcal',
+            'page_title' => 'Les aliments contenant moins de 50kcal',
             'aliments' => $aliments
         ]);
     }
