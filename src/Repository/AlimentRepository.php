@@ -19,11 +19,11 @@ class AlimentRepository extends ServiceEntityRepository
         parent::__construct($registry, Aliment::class);
     }
 
-    public function findByCaloriesNb($calorie)
+    public function filterByEnergyValue($property, $sign, $value)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.calories < :val')
-            ->setParameter('val', $calorie)           
+            ->andWhere('a.'. $property .' '. $sign .' :val')
+            ->setParameter('val', $value)           
             ->getQuery()
             ->getResult()
         ;

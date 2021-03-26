@@ -48,7 +48,7 @@ class AlimentFixtures extends Fixture
             ->setCalories(52)
             ->setImage("legumes/pomme.png")
             ->setProteines(0.25)
-            ->setGlucides(11.6)
+            ->setGlucides(14)
             ->setLipides(0.25);
         $manager->persist($a4);
 
