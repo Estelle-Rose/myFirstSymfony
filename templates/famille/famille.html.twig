@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Les {{famille.libelle}}
+{% endblock %}
+{% block pageTitle %} Les {{famille.libelle|capitalize}}
+{% endblock %}
+
+{% block body %}
+	<style>
+		.card {
+				border-radius: 5px !important;
+			}
+	</style>
+
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-12 col-md-8 d-flex justify-content-center mx-auto">
+				<div class="card border-success p-3 mb-3 d-flex justify-content-center " style="width:100%;">
+                   
+                    <div class="card-body pl-0">
+                    
+                        <p class="card-text text-left text-md-center">{{famille.description}} </p>
+						<div class="row">
+							{%  for animal in famille.animaux %}
+							
+							<div class="col-6">
+								<div class="card p-1 bg-info">
+									<div class="card-image mx-auto">
+										<img src="{{asset('images/animaux/'~animal.image)}}" alt="{animal.nom}" style="width:150px;height:150px;" class="img-fluid p-2">
+									</div>
+									<div class="card-title">
+										<h3 class="text-center"> <a href="{{path('animal', {'id': animal.id})}}">{{ animal.nom}}</h3></a>
+									</div>
+									<div class="card-body">
+									<p class="card-text text-center text-dark">{{ animal.description}}</p>
+									</div>
+								</div>
+								
+							</div>
+							{% endfor %}
+					</div>
+                    
+                    </div>
+			
+				</div>
+			</div>
+				
+		
+		</div>
+
+
+	</div>
+{% endblock %}
+
+

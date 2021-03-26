@@ -1,49 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} 
 
-{% block title %}Les personnages
-{% endblock %}
-{% block pageTitle %}Liste des personnages !
-{% endblock %}
+{% block title %}Assassin Rebellion!{% endblock %}
+{% block pageTitle %}Accueil {% endblock %}
 
 {% block body %}
-	<style>
-
-	</style>
-
-	<div class="container">
-		<div class="row">
-			{% for player in players %}
-			<div class="col-12 col-md-6">
-				<div class="card mb-3" style="max-width: 600px;">
-					<div class="row ">
-						<div class="col-4">
-							<img src="{{ asset('images/personnages/'~player.image)}}" alt=""  class="rounded img-thumbnail p-2">
-
-						</div>
-						<div class="col-8">
-							<div class="card-body">
-								<p class="card-text"><a href="{{path('afficher_personnage',{'id': player.id})}}"> Pseudo : {{player.pseudo}} </a> </p>
-								<p class="card-text"> Age :  {{player.age}} </p>
-								<p class="card-text"> Sexe : 
-									{% if (player.sexe) %} 
-									Homme
-									{% else %}
-									Femme
-									{% endif %}
-								</p>
-								<p class="card-text"> Force : {{player.carac.force}} </p>
-								<p class="card-text"> Discrétion : {{player.carac.discretion}} </p>
-								<p class="card-text"> Arme : {{player.carac.arme}} </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-				
-			{% endfor %}
-		</div>
-
-
-	</div>
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .btn {
+        border-radius: 5px !important;
+    }
+</style>
+<div class="container-fluid ">
+    
+<div class="container ">
+    <img src="{{ asset('/images/personnages/fond_ass_rebellion.png') }}" alt="" style="width:100%;max-height:350px;" class="mx-auto rounded img-fluid">
+     <div class="row g-0 mx-auto">
+     <div class="col-6 col-md-4 mx-auto mt-5">
+         <a href="{{ path('personnages')}}" class="btn btn-outline-primary">Liste des personnages</a>
+     </div>
+     <div class="col-6 col-md-4 mx-auto mt-5">
+         <a href="{{ path('weapons')}}" class="btn btn-outline-primary">Liste des armes</a>
+     </div>
+     
+ </div>
+</div>
+</div>
 {% endblock %}
-

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{continent.libelle}}
+{% endblock %}
+{% block pageTitle %} {{continent.libelle|capitalize}}
+{% endblock %}
+
+{% block body %}
+	<style>
+		.card,.btn {
+				border-radius: 5px !important;
+			}
+	</style>
+
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-12 col-md-10 d-flex justify-content-center mx-auto">
+				<div class="card border-success p-3 mb-3 d-flex justify-content-center " style="width:100%;">
+                   
+                    <div class="card-body pl-0">
+                    
+                       
+						<div class="row">
+							{%  for animal in continent.animaux %}
+							
+							<div class="col-6">
+								<div class="card p-1 mb-2 bg-info">
+									<div class="card-image mx-auto">
+										<img src="{{asset('images/animaux/'~animal.image)}}" alt="{animal.nom}" style="width:150px;height:150px;" class="img-fluid p-2">
+									</div>
+									<div class="card-title">
+										<h3 class="text-center"> <a href="{{path('animal', {'id': animal.id})}}">{{ animal.nom}}</h3></a>
+									</div>
+									<div class="card-body">
+										<p class="card-text text-center">
+											<a href="{{ path('famille', { id: animal.famille.id }) }}"
+											class="btn btn-outline-secondary"
+											>{{ animal.famille.libelle }}.</a
+											>
+										</p>
+										<p class="card-text text-center">Continents où l'animal est également présent :</p>
+										<div class="row g-0 ">
+										{% for value in animal.continents %}
+										{% if (continent.id != value.id) %}
+											<div class="col-6 text-center mx-auto">
+												<a href="{{path('continent', {'id': value.id})}}" class="btn btn-outline-primary m-1">{{ value.libelle}}</a>
+
+											</div>
+											{% endif %}
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							{% endfor %}
+					</div>
+                    
+                    </div>
+			
+				</div>
+			</div>
+				
+		
+		</div>
+
+
+	</div>
+{% endblock %}
+
+

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil animaux{% endblock %}
+{% block pageTitle %}Accueil animaux{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 840px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code {  padding: 2px 6px; }
+    .card,.btn {
+        border-radius: 5px !important;
+    }
+</style>
+
+<div class="example-wrapper">
+ <div class="row mx-auto">
+     <div class="col-6 col-md-4 mx-auto mb-5">
+         <a href="{{ path('familles')}}" class="btn btn-outline-info">Liste des familles</a>
+     </div>
+     <div class="col-6 col-md-4 mx-auto mb-5">
+         <a href="{{ path('animals')}}" class="btn btn-outline-info">Liste des animaux</a>
+     </div>
+     <div class="col-6 col-md-4 mx-auto mb-5">
+         <a href="{{ path('continents')}}" class="btn btn-outline-info">Liste des continents</a>
+     </div>
+     <div class="col-6 col-md-4 mx-auto mb-5">
+         <a href="{{ path('personnes')}}" class="btn btn-outline-info">Liste des personnes</a>
+     </div>
+ </div>
+
+   
+</div>
+{% endblock %}
