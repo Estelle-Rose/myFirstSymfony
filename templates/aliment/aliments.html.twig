@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block pageTitle %}{{ page_title }}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 1140px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .divider {
+        width: 70%;
+        
+    }
+</style>
+
+<div class="example-wrapper">
+    <a href="{{path('low-calories', {'calorie': 50})}}"> Les aliments avec moins de 50kcal</a>
+   <div class="row">
+       {% for aliment in aliments %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card border-info mb-3 mx-auto" style="max-width: 20rem;">
+            <div class="card-body bg-white mb-2 d-flex justify-content-center">
+                <img src="{{ asset('images/'~aliment.image)}}" alt="" style="max-width:120px;" class="img-fluid ">
+            </div>
+            <div class="card-title">
+                <h2 class="text-center">
+                    <a href="{{path('aliment', {'id': aliment.id })}}" class="">
+                        {{ aliment.nom }}
+                    </a>
+                </h2>
+                <hr class="divider  bg-light"/>
+                <p class="font-weight-blod lead text-center">Prix (kilo) : {{ aliment.prix }} €</p>
+            </div>
+
+            <div class="card-body">
+                <table class="table ">
+                    <thead class="">
+                        <tr class="table-primary">
+                       
+                        <th scope="col">Propriété</th>
+                        <th scope="col">Valeur (100g)</th>
+                   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>                       
+                            <td>Calories</td>
+                            <td class="text-center">{{ aliment.calories}}</td>                    
+                        </tr>
+                        <tr>                       
+                            <td>Protéines</td>
+                            <td class="text-center">{{ aliment.proteines}}</td>                     
+                        </tr>
+                        <tr>                       
+                            <td>Glucides</td>
+                            <td class="text-center">{{ aliment.glucides}}</td>                     
+                        </tr>
+                        <tr>                       
+                            <td>Lipides</td>
+                            <td class="text-center">{{ aliment.lipides}}</td>                     
+                        </tr>
+                     
+                    </tbody>
+                 </table>
+
+          
+            </div>
+          
+        </div>
+    </div>
+    {% endfor %}
+   </div>
+
+   
+</div>
+{% endblock %}
