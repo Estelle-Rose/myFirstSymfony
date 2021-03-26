@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block pageTitle %}{{ page_title }}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 1140px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+  <div class="row mx-auto">
+      <div class="col-12 ">
+          <a href="{{path('add_aliment')}}" class="btn btn-info mb-5">Ajouter</a>
+      </div>
+      <div class="col-12 ">
+          <table class="table table-responsive mx-auto">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col" class="text-center align-middle">Image</th>
+                    <th scope="col" class="text-center align-middle">Aliment</th>
+                    <th scope="col" class="text-center align-middle">Prix</th>
+                    <th scope="col" class="text-center align-middle">Calories</th>
+                    <th scope="col" class="text-center align-middle">Protéines</th>
+                    <th scope="col" class="text-center align-middle">Glucides</th>
+                    <th scope="col" class="text-center align-middle">Lipides</th>
+                    <th scope="col" class="text-center align-middle">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aliment in aliments %}
+                    <tr>
+                    <th scope="row"><img src="{{asset('images/'~aliment.image)}}" alt="{{aliment.nom}}" style="width:100px;"></th>
+                    <td class="text-center align-middle">{{ aliment.nom}}</td>
+                    <td class="text-center align-middle">{{ aliment.prix}}</td>
+                    <td class="text-center align-middle">{{ aliment.calories}}</td>
+                    <td class="text-center align-middle">{{ aliment.proteines}}</td>
+                    <td class="text-center align-middle">{{ aliment.glucides}}</td>
+                    <td class="text-center align-middle">{{ aliment.lipides}}</td>
+                    <td class=" align-middle">
+                        <div class="d-flex justify-content-between align-content-center ">
+                            <a href="{{path('update_aliment', {'id': aliment.id})}}" class="btn btn-secondary mr-2">Modifier</a>
+                            <a href="{{path('delete_aliment', {'id': aliment.id})}}" class="btn btn-secondary" onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?')">Supprimer</a>
+                        </div>
+                    </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+      </div>
+  </div>
+</div>
+{% endblock %}

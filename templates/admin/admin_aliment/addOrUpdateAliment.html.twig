@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  {% if modification %}
+  Modifier : {{ aliment.nom }}
+  {% else %}
+  Ajouter un aliment
+  {% endif %}
+{% endblock %}
+{% block pageTitle %}
+   {% if modification %}
+  Modifier : {{ aliment.nom }}
+  {% else %}
+  Ajouter un aliment
+   {% endif %}
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 1140px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .form-control {
+      border-radius: 5px !important;
+    }
+   
+</style>
+
+<div class="example-wrapper">
+ 
+  {{ form_start(form) }}
+      <div class="row">
+         <!-- debut du formulaire  -->
+        <!-- le formulaire / la personnalisation se fait ici avec bootstrap en renseignant le thème dans le dossier config/packages/twig.yaml -->
+        <div class="col-6">
+          <img src="{{asset('images/'~aliment.image)}}" alt="{{aliment.nom}}" style="width:130px;">
+          <div> {{ form_row(form.image) }}</div>
+           <div> {{ form_row(form.nom, {'label': 'Nom de l\'aliment'}) }}</div>
+        </div>
+        <div class="col-6">
+          <div> {{ form_row(form.prix) }}</div>
+          <div> {{ form_row(form.calories) }}</div>
+          <div> {{ form_row(form.proteines) }}</div>
+          <div> {{ form_row(form.glucides) }}</div>
+          <div> {{ form_row(form.lipides) }}</div>
+         
+        </div>
+        <div class="col-6">
+          <input type="submit" class="btn btn-success" value="Enregistrer">
+        </div>
+      </div>
+        <!-- fin du formulaire  -->
+         {{ form_end(form) }}
+ 
+</div>
+{% endblock %}

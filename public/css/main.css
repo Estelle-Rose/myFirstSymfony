@@ -3,3 +3,10 @@ body {
        margin: 0 !important;
     padding: 0 !important;
 }
+.btn {
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    -ms-border-radius: 5px !important;
+    -o-border-radius: 5px !important;
+}
