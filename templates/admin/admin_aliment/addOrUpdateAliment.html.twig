@@ -29,6 +29,13 @@
  
   {{ form_start(form) }}
       <div class="row">
+        <div class="col-12">
+           {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+          {% endfor %}
+        </div>
          <!-- debut du formulaire  -->
         <!-- le formulaire / la personnalisation se fait ici avec bootstrap en renseignant le thème dans le dossier config/packages/twig.yaml -->
         <div class="col-6">
