@@ -29,11 +29,20 @@
  
   {{ form_start(form) }}
       <div class="row">
+        <div class="col-12">
+           {% for message in app.flashes('success') %}
+            <div class="alert alert-success my-3">
+                {{ message }}
+            </div>
+          {% endfor %}
+        </div>
          <!-- debut du formulaire  -->
         <!-- le formulaire / la personnalisation se fait ici avec bootstrap en renseignant le thème dans le dossier config/packages/twig.yaml -->
         <div class="col-6">
-          <img src="{{asset('images/'~aliment.image)}}" alt="{{aliment.nom}}" style="width:130px;">
-          <div> {{ form_row(form.image) }}</div>
+          {% if modification %}
+          <img src="{{asset('images/legumes/'~aliment.image)}}" alt="{{aliment.nom}}" style="width:130px;">
+    {% endif %}
+          <div> {{ form_row(form.imageFile) }}</div>
            <div> {{ form_row(form.nom, {'label': 'Nom de l\'aliment'}) }}</div>
         </div>
         <div class="col-6">
