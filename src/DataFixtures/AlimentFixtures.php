@@ -16,7 +16,7 @@ class AlimentFixtures extends Fixture
         $a1 ->setNom('Carotte')
             ->setPrix(1.80)
             ->setCalories(36)
-            ->setImage("legumes/carotte.png")
+            ->setImage("carotte.png")
             ->setProteines(0.77)
             ->setGlucides(6.45)
             ->setLipides(0.26);
@@ -26,7 +26,7 @@ class AlimentFixtures extends Fixture
         $a2 ->setNom('Patate')
             ->setPrix(1.50)
             ->setCalories(80)
-            ->setImage("legumes/patate.jpg")
+            ->setImage("patate.jpg")
             ->setProteines(1.80)
             ->setGlucides(16.7)
             ->setLipides(0.34);
@@ -36,7 +36,7 @@ class AlimentFixtures extends Fixture
         $a3 ->setNom('Tomate')
             ->setPrix(2.3)
             ->setCalories(18)
-            ->setImage("legumes/tomate.png")
+            ->setImage("tomate.png")
             ->setProteines(0.86)
             ->setGlucides(2.26)
             ->setLipides(0.24);
@@ -46,7 +46,7 @@ class AlimentFixtures extends Fixture
         $a4 ->setNom('Pomme')
             ->setPrix(2.35)
             ->setCalories(52)
-            ->setImage("legumes/pomme.png")
+            ->setImage("pomme.png")
             ->setProteines(0.25)
             ->setGlucides(14)
             ->setLipides(0.25);

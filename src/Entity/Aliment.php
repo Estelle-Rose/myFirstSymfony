@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\AlimentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AlimentRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AlimentRepository::class)
+ * @Vich\Uploadable
  */
 class Aliment
 {
@@ -55,6 +59,36 @@ class Aliment
      */
     private $lipides;
 
+    /**     
+     * @Vich\UploadableField(mapping="aliment_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+   
+
+      public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    } 
+
+    public function setImageFile(?File $imageFile= null): self
+    {
+           $this->imageFile = $imageFile;
+
+       if($this->imageFile instanceof UploadedFile) {
+            $this->updated_at = new \DateTime('now');
+        }
+       return $this; 
+    }
+
+  
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,7 +123,7 @@ class Aliment
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(? string $image): self
     {
         $this->image = $image;
 
@@ -143,4 +177,18 @@ class Aliment
 
         return $this;
     }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    
 }

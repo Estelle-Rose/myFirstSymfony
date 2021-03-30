@@ -54,8 +54,10 @@ class AdminAlimentController extends AbstractController
     }
     #[Route('/admin/aliments/{id}', name: 'delete_aliment', methods:['DELETE'])] 
     public function deleteAliment( EntityManagerInterface $manager, $id): Response
-    {        
+    {       
         $aliment = $manager->getRepository(Aliment::class)->find($id);
+        $image = $aliment -> getImage(); 
+        dd($image);
         if (!$aliment) {
             throw $this->createNotFoundException(
                 "L'aliment n'a pas été trouvé en base de données" .$id

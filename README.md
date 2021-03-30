@@ -1,5 +1,6 @@
 #My first symfony app
 Mon apprentissage de Symfony avec différents objectifs à accomplir  : 
+Pour les blocs 2/3 et 4,  créer une BDD my_first_symfony, utilisateur : root, pwd : null
 
 ## Bloc personnages
 * Réviser les bases de PHP
