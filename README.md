@@ -1,11 +1,11 @@
-#My first symfony app  
+# My first symfony app  
 
 Mon apprentissage de Symfony avec différents objectifs à accomplir  :  
 
 Avoir composer et symfony installés.  
-Pour lancer le projet : ```composer install ``` puis ```symfony server:start ```  
+Pour lancer le projet : ```composer install ```  puis  ```symfony server:start ```  
 
-Pour les blocs 2/3 et 4,  créer une BDD et configurer le .env avec :  
+Pour les blocs 2/3 et 4,  créer une BDD et configurer le fichier .env avec :  
 * l'utilisateur
 * mot de passe s'il y a
 * port 
