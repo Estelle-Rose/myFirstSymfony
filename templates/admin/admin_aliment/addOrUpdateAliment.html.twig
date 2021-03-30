@@ -42,7 +42,12 @@
           {% if modification %}
           <img src="{{asset('images/legumes/'~aliment.image)}}" alt="{{aliment.nom}}" style="width:130px;">
     {% endif %}
-          <div> {{ form_row(form.imageFile) }}</div>
+          <div> {{ form_row(form.imageFile, {
+                attr: {
+                    'placeholder': 'Choisissez une image',
+                   
+                }
+                }) }}</div>
            <div> {{ form_row(form.nom, {'label': 'Nom de l\'aliment'}) }}</div>
         </div>
         <div class="col-6">

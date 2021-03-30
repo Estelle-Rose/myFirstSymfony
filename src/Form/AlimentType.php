@@ -15,7 +15,8 @@ class AlimentType extends AbstractType
         $builder
             ->add('nom')
             ->add('prix')
-            ->add('imageFile', FileType::class, ['required'=>false])
+            ->add('imageFile', FileType::class,
+             ['required'=>false])
             ->add('calories')
             ->add('proteines')
             ->add('glucides')
