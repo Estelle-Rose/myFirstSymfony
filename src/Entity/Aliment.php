@@ -70,6 +70,12 @@ class Aliment
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="aliments")
+     */
+    private $type;
+
+    
    
 
       public function getImageFile(): ?File
@@ -189,6 +195,20 @@ class Aliment
 
         return $this;
     }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+  
 
     
 }

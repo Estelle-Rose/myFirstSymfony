@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Aliment;
+use App\Repository\TypeRepository;
 use App\Repository\AlimentRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,15 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AlimentController extends AbstractController
 {
-    #[Route('/epicerie', name: 'accueil_aliments')]
-    public function index(): Response
-    {
-        return $this->render('aliment/index.html.twig', [
-            'page_title' => 'Accueil de l\'épicerie',
-        ]);
-    }
-    #[Route('/aliments', name: 'aliments')]
-    public function getVeggies(AlimentRepository $repository): Response
+   
+    #[Route('/epicerie/aliments', name: 'aliments')]
+    public function getAliments(AlimentRepository $repository): Response
     {
         $aliments = $repository->findAll();
         return $this->render('aliment/aliments.html.twig', [
@@ -26,7 +21,8 @@ class AlimentController extends AbstractController
             'aliments' => $aliments
         ]);
     }
-    #[Route('/aliments/calories/{calorie}', name: 'low-calories')]
+   
+    #[Route('/epicerie/aliments/calories/{calorie}', name: 'low-calories')]
     public function getAlimentsLowCalories(AlimentRepository $repository , $calorie): Response
     {
         $aliments = $repository->filterByEnergyValue('calories', '<', $calorie);
@@ -36,7 +32,7 @@ class AlimentController extends AbstractController
         ]);
     }
     // il faut rajouter le filtre dans la route pour que symfony puisse faire la différence et afficher la bonne page
-    #[Route('/aliments/glucides/{glucide}', name: 'low-glucids')]
+    #[Route('/epicerie/aliments/glucides/{glucide}', name: 'low-glucids')]
     public function getAlimentsLowGlucids(AlimentRepository $repository , $glucide): Response
     {
         $aliments = $repository->filterByEnergyValue('glucides', '<', $glucide);
@@ -45,7 +41,7 @@ class AlimentController extends AbstractController
             'aliments' => $aliments
         ]);
     }
-    #[Route('/aliments/{id}', name: 'aliment')]
+    #[Route('/epicerie/aliments/{id}', name: 'aliment')]
     public function getVeggie(Aliment $aliment): Response
     {
         $title = $aliment->getNom();

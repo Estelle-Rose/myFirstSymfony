@@ -62,11 +62,16 @@
           >Epicerie</a
         >
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="{{ path('accueil_aliments') }}"
-            >Accueil</a
-          >
+       
           <a class="dropdown-item" href="{{ path('aliments') }}">Les Aliments</a>
-          <a class="dropdown-item" href="{{ path('admin_aliment') }}">Administration</a>
+          <a class="dropdown-item" href="{{ path('categories') }}">Les Catégories</a>
+           
+          <div class="dropdown-divider"></div>          
+          <a class="dropdown-item" href="{{ path('admin_aliments') }}">Admin Aliments</a>
+          <a class="dropdown-item" href="{{ path('admin_categories') }}">Admin Catégories</a>         
+  
+         
+         
         
         </div>
       </li>

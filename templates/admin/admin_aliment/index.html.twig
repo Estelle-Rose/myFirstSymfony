@@ -11,6 +11,9 @@
     background: #f5f5f5;
     padding: 2px 6px;
   }
+   .btn {
+    border-radius: 5px !important;
+  }
 </style>
 
 <div class="example-wrapper">
@@ -29,6 +32,7 @@
           <tr>
             <th scope="col" class="text-center align-middle">Image</th>
             <th scope="col" class="text-center align-middle">Aliment</th>
+            <th scope="col" class="text-center align-middle">Catégorie</th>
             <th scope="col" class="text-center align-middle">Prix</th>
             <th scope="col" class="text-center align-middle">Calories</th>
             <th scope="col" class="text-center align-middle">Protéines</th>
@@ -42,12 +46,13 @@
           <tr>
             <th scope="row">
               <img
-                src="{{asset('images/legumes/'~aliment.image)}}"
+                src="{{asset('images/aliments/'~aliment.image)}}"
                 alt="{{ aliment.nom }}"
                 style="width: 100px"
               />
             </th>
             <td class="text-center align-middle">{{ aliment.nom }}</td>
+            <td class="text-center align-middle">{{ aliment.type.libelle }}</td>
             <td class="text-center align-middle">{{ aliment.prix }}</td>
             <td class="text-center align-middle">{{ aliment.calories }}</td>
             <td class="text-center align-middle">{{ aliment.proteines }}</td>
