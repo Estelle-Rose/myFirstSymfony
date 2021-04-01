@@ -2,31 +2,43 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+* @UniqueEntity(
+* fields={"username"},
+* message="cet utilisateur existe déjà"
+* )
  */
 class User
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer")    
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3,max=25, minMessage="Le nom doit être de 3 caractères minimum")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=5,max=20, minMessage="Le mot de passe doit être de 3 caractères minimum et 20 maximum",maxMessage="Le mot de passe doit être de 20 caractères maximum")
      */
     private $password;
-
+    /**
+     *
+     * @Assert\Length(min=5,max=20, minMessage="Le mot de passe doit être de 3 caractères minimum et 20 maximum",maxMessage="Le mot de passe doit être de 20 caractères maximum")
+     * @Assert\EqualTo(propertyPath="password", message="Les mots de passe ne sont pas identiques")
+     */
     private $checkedPassword;
 
     public function getId(): ?int
