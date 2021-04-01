@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %} 
+{% block title %}
+{% if modification %}
+Modification de la catégorie :  {{ type.libelle}}
+{% else %}
+Ajout d'une nouvelle catégorie
+{% endif %}
+{% endblock %}
+{% block pageTitle %}
+{% if modification %}
+ Modification de la catégorie : {{ type.libelle}}
+{% else %}
+Ajout d'une nouvelle catégorie
+{% endif %}
+{% endblock %}
+{% block body %}
+<style>
+  .example-wrapper {
+    margin: 1em auto;
+    max-width: 1140px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+  }
+  .example-wrapper code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+  }
+  .form-control {
+    border-radius: 5px !important;
+  }
+</style>
+
+<div class="example-wrapper">
+  {{ form_start(form) }}
+  <div class="row">
+    <div class="col-12">
+      {% for message in app.flashes('success') %}
+      <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    <!-- debut du formulaire  -->
+    <!-- le formulaire / la personnalisation se fait ici avec bootstrap en renseignant le thème dans le dossier config/packages/twig.yaml -->
+    <div class="col-6">
+   {% if modification %}
+      <img
+        src="{{asset('images/types/'~ type.image)}}"
+        alt="{{ type.libelle }}"
+        style="width: 130px"
+      />
+      {% endif %}
+      <div>
+        {{ form_row(form.imageFile, {
+                attr: {
+                    'placeholder': 'Choisissez une image',
+                   
+                }
+                }) }}
+      </div>
+      <div>{{ form_row(form.libelle, { label: "Nom" }) }}</div>
+     
+    </div>
+ 
+    <div class="col-6">
+      <input type="submit" class="btn btn-success" value="Enregistrer" />
+    </div>
+  </div>
+  <!-- fin du formulaire  -->
+  {{ form_end(form) }}
+</div>
+{% endblock %}

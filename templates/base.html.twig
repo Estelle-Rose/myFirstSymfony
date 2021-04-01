@@ -9,9 +9,7 @@
       rel="stylesheet"
       href="https://bootswatch.com/4/superhero/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="{{
-      asset('css/main.css')
-    }}" > {% block stylesheets %} {#{{
+   {% block stylesheets %} {#{{
       encore_entry_link_tags('app')
     }}#} {% endblock %}
   </head>
@@ -38,7 +36,7 @@
       integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
       crossorigin="anonymous"
     ></script>
-
+   <script src="{{ asset('js/main.js') }}"></script>
     {#{{ encore_entry_script_tags('app') }}#} {% endblock %}
   </body>
 </html>

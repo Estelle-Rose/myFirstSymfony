@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+ {% block title %}{{ page_title }}{% endblock %}
+
+{% block pageTitle %}{{ page_title }}{% endblock %}
+ {% block body %}
+<style>
+  .example-wrapper {
+    margin: 1em auto;
+    max-width: 1140px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+  }
+  .example-wrapper code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+  }
+   .btn {
+    border-radius: 5px !important;
+  }
+ 
+</style>
+
+<div class="example-wrapper">
+  <div class="row mx-auto">
+    <div class="col-12 col-md-8 mx-auto">
+      {% for message in app.flashes('success') %}
+      <div class="alert alert-success my-3">
+        {{ message }}
+      </div>
+      {% endfor %}
+      <div class="d-flex justify-content-end">
+
+          <a href="{{ path('add_categories') }}" class="btn btn-info mb-5 ">Ajouter</a>
+      </div>
+    </div>
+    <div class="col-12 col-md-8 mx-auto ">
+        <div class="table-responsive">
+            <table class="table  mx-auto">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" class=" align-middle">Image</th>
+                  <th scope="col" class=" align-middle">Catégorie</th>
+                 
+                  <th scope="col" class="align-middle">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for categorie in categories %}
+                <tr>
+                  <td scope="row"  class="align-middle ml-1">
+                    <img
+                      src="{{asset('images/types/'~ categorie.image)}}"
+                      alt="{{ categorie.libelle }}"
+                      style="width: 100px"
+                     
+                    />
+                  </td>
+                  <td class="ml-1 align-middle">{{ categorie.libelle }}</td>
+               
+                  <td class="ml-1 align-middle">
+                    <div class="d-flex justify-content-start align-content-center">
+                      <a
+                        href="{{ path('update_categories', { id: categorie.id }) }}"
+                        class="btn btn-secondary mr-2"
+                        >Modifier</a
+                      >
+                      <form
+                        action="{{ path('delete_categories', { id: categorie.id }) }}"
+                        method="POST"
+                      >
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <input type="hidden" name="_token" value="{{csrf_token('DELETE' ~ categorie.id)}}">
+                        <button
+                          class="btn btn-danger"
+                          onclick="return confirm('Voulez-vous vraiment supprimer cette catégorie ?')"
+                        >
+                          Supprimer
+                        </button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
