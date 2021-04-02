@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SignupController extends AbstractController
 {
@@ -40,10 +41,13 @@ class SignupController extends AbstractController
         ]);
     }
     #[Route('/login', name: 'login')]
-    public function login(): Response
+    public function login(AuthenticationUtils $util): Response // injection de la dépendance AuthenticationUtils
     {
+
         return $this->render('signup/login.html.twig', [
-            'page_title' => 'Connexion'           
+            "lastUserName"=> $util->getLastUsername(),
+            "error" => $util->getLastAuthenticationError(),
+            'page_title' => 'Connexion'         
           
         ]);
     }
