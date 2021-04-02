@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -14,7 +15,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 * message="cet utilisateur existe déjà"
 * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -79,5 +80,18 @@ class User
         $this->checkedPassword = $checkedPassword;
 
         return $this;
+    }
+    public function eraseCredentials()
+    {
+        
+    }
+    public function getSalt()
+    {
+        
+    }
+    
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
     }
 }
