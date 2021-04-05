@@ -43,6 +43,6 @@ Pour l'accès aux blocs 2/3 et 4 :
 * Réaliser une pagination
 * Ajouter des filtres
 * Réaliser un site à partir d'une spécification basique
-* Utilisation de Faker
+* Utilisation de Faker // Abandon de faker après incompatibilité php8 
 * Réutilisation de toutes les notions déjà étudiées
 * Déploiement
