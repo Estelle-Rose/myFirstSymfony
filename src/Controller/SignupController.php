@@ -26,8 +26,11 @@ class SignupController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             // on créer un password crypté avec le UserPasswordEncoderInterface + fonction encodePassword(le user, le password)
             $passwordCrypted = $encoder->encodePassword($user,$user->getPassword());
+            $role[] = $user->getRoles();
             // on met à jour le password avec le nouveau crypté
-            $user->setPassword($passwordCrypted);
+            $user->setPassword($passwordCrypted)
+                ->setRoles([$role]);
+            
             $manager->persist($user);
             $manager->flush();
             $this->addFlash("success", "Vous êtes inscrit !");

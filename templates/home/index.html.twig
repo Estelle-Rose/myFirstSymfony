@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %} 
 
-{% block title %}Accueil{% endblock %}
-{% block pageTitle %}Accueil {% endblock %}
-
+{% block title %}Accueil{% endblock %}  {% block pageTitle %}Accueil{% endblock %}
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -15,6 +13,58 @@
     
 <div class="container ">
     <h1 class="text-center"> Une application symfony progressive </h1>  
+<div class="row">
+    <div class="col-12 col-md-8 mx-auto mx-auto">
+        <div class="card p-2 my-3 ">
+            <h2 class="text-primary" > I - Partie personnages</h2>
+            <p> Réviser les bases de PHP</p>
+            <p>Réviser les bases de POO</p>
+            <p> Revoir le modèle MVC</p>
+            <p> Créer une application Symfony et  :  
+                <ul>
+                    <li>Utiliser les routes  </li>
+                    <li>Utiliser le système de template Twig  </li>
+                    <li> Comprendre l'architecture globale du framework</li>
+                </ul>
+            </p>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-8 mx-auto">
+        <div class="card p-2 my-3">
+            <h2 class="text-primary">II - Partie animalerie </h2>
+            <p> Créer une application utilisant une base de données</p>
+            <p>Utiliser le système de BDD de Symfony (Doctrine + Fixtures)</p>
+            <p> Afficher des éléments d'une BDD</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-8 mx-auto">
+        <div class="card p-2 my-3">
+            <h2 class="text-primary">III - Partie épicerie</h2>
+            <p> Mettre en application les notions précédentes</p>
+            <p>Utilisation avancée de doctrine et des repositories</p>
+            <p>Mise en place d'un CRUD</p> 
+            <p> Réalisation des formulaires</p>
+            <p>Uploader une image</p> 
+            <p>Validation des données</p> 
+            <p>Ajout de la partie authentification</p> 
+            <p> Ajout d'une gestion basique de rôle</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-8 mx-auto">
+        <div class="card p-2 my-3">
+            <h2 class="text-primary">IV - Partie voitures</h2>
+            <p>Réaliser une pagination avec KnpPaginatorBundle</p> 
+            <p> Ajouter des filtres</p>
+            <p>Réaliser un site à partir d'une spécification basique</p> 
+            <p> Utilisation de Faker // Abandon de faker après incompatibilité php8 </p>
+            <p>Réutilisation de toutes les notions déjà étudiées</p> 
+            <p>Déploiement
+            </p> 
+
+        </div>
+    </div>
+</div>
 
 </div>
 
