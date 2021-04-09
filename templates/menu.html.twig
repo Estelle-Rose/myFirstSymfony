@@ -109,6 +109,11 @@
       {%  else %}
       <li class="nav-item">
         <a class="nav-link" href="{{path('logout')}}">Déconnexion</a>     
+           
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="">{{ app.user.username}}</a>   
+           
       </li>
       {% endif %}
     </ul>
