@@ -25,13 +25,14 @@ class SignupController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             // on créer un password crypté avec le UserPasswordEncoderInterface + fonction encodePassword(le user, le password)
-            $passwordCrypted = $encoder->encodePassword($user,$user->getPassword());
+            $passwordCrypted = $encoder->encodePassword($user,$user->getPassword());            
             // on met à jour le password avec le nouveau crypté
             $user->setPassword($passwordCrypted);
+            $user->setRoles("ROLE_USER");            
             $manager->persist($user);
             $manager->flush();
             $this->addFlash("success", "Vous êtes inscrit !");
-            return $this->redirectToRoute('aliments');
+            return $this->redirectToRoute('accueil');
 
         } 
         return $this->render('signup/index.html.twig', [

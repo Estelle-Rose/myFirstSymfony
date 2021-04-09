@@ -1,15 +1,20 @@
 # My first symfony app  
 
 Mon apprentissage de Symfony avec différents objectifs à accomplir  :  
+## Prérequis
+PHP / MySQL ou MariaDB /Composer /Symfony 5 / Npm / Yarn  
+Pour lancer le projet : 
+* ```composer install ``` 
+* ```npm install ``` 
+* ```yarn install ```
+* ```yarn run encore dev --watch```
+* ```symfony server:start ```  
 
-Avoir composer et symfony installés.  
-Pour lancer le projet : ```composer install ```  puis  ```symfony server:start ```  
-
-Pour les blocs 2/3 et 4,  créer une BDD et configurer le fichier .env avec :  
-* l'utilisateur
-* mot de passe s'il y a
-* port 
-* nom de la BDD
+Pour l'accès aux blocs 2/3 et 4 :  
+* modifier le fichier .env avec informations de connexion à la BDD : DATABASE_URL=mysql://User:Password@127.0.0.1:3306/nameDatabasse?serverVersion=10.4.18
+* lancer la création de la BDD avec ```symfony console doctrine:database:create```
+* Exécuter la migration  en BDD ```symfony console doctrine:migration:migrate```
+* Loader les datafixtures : ```php bin/console doctrine:fixtures:load```
 
 ## Bloc personnages
 * Réviser les bases de PHP
@@ -38,6 +43,6 @@ Pour les blocs 2/3 et 4,  créer une BDD et configurer le fichier .env avec :
 * Réaliser une pagination
 * Ajouter des filtres
 * Réaliser un site à partir d'une spécification basique
-* Utilisation de Faker
+* Utilisation de Faker // Abandon de faker après incompatibilité php8 
 * Réutilisation de toutes les notions déjà étudiées
 * Déploiement

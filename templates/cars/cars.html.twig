@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ page_title}}{% endblock %}
+{% block pageTitle %} {{page_title}}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 1140px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .form-control, .btn{
+        border-radius: 5px !important;
+    }
+    
+</style>
+
+<div class="example-wrapper">
+     {% if is_admin %}
+    <div class="row">
+
+        <div class="col-12 text-center pb-5">
+           <a href="{{path('add_cars')}}" class="btn btn-success mx-auto">Ajouter un véhicule</a>
+       </div>
+    </div>
+    {% endif %}
+    {{ form_start(form) }}
+    <div class="row no-gutters justify-content-between text-center mx-5 px-5">
+      <div class="col-4">
+          {{ form_row(form.minAnnee) }}
+
+      </div>
+      <div class="col-4">
+          {{ form_row(form.maxAnnee) }}
+
+      </div>
+      <div class="col-2 pt-4">
+          <input type="submit" value="rechercher" class="btn btn-info">
+      </div>         
+            {{ form_end(form) }}
+
+    </div>
+    <div class="row no-gutters">
+       
+        {% for car in cars %}
+        <div class="col-md-6">
+            <div class="card py-2 my-3 mx-2">  
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-center align-items-center p-2">
+                        <div class="card-image">
+                            <img src="{{asset('images/voitures/' ~ car.modele.image)}}" alt="{{car.immatriculation}}" class="" style="width:180px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="px-2 px-lg-1 ">
+                            <p class="lead">Marque : {{ car.modele.marque.libelle }}</p>
+                            <p class="lead">Modèle : {{ car.modele.libelle }}</p>
+                            <p class="lead">Nombre de portes : {{ car.nbPortes }}</p>
+                            <p class="lead">Année : {{ car.annee }}</p>
+                            <p class="lead">Prix moyen : {{ car.modele.prixMoyen }} €</p>
+                            <p class="lead">Immatriculation : {{ car.immatriculation}}</p>                      
+                        
+                        </div>
+                        {% if is_admin %}
+                        <div class="d-flex">
+                            <a href="{{path('update_cars', {"id": car.id})}}" class="btn btn-warning mr-2">Modifier</a>
+                            <form action="{{path('delete_cars', {"id": car.id})}}" method="POST">
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <input type="hidden" name="_token" value="{{csrf_token('DELETE' ~ car.id)}}" />
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Voulez-vous vraiment supprimer ce véhicule ?')">Supprimer</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    
+                    </div>
+
+
+                </div>
+
+                    
+            
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-12 col-md-8 mx-auto">
+                {# display navigation #}
+            <div class="navigation d-flex justify-content-center">
+                {{ knp_pagination_render(cars) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
