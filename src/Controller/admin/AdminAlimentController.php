@@ -33,7 +33,7 @@ class AdminAlimentController extends AbstractController
         
         if (!$aliment) {
             throw $this->createNotFoundException(
-                "L'aliment n'a pas été trouvé en base de données" .$id
+                "L'aliment n'a pas été trouvé en base de données"
             );
         }
 

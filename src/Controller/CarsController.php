@@ -37,8 +37,10 @@ class CarsController extends AbstractController
         6 /*limit per page*/
     );
         return $this->render('cars/cars.html.twig', [
+            'page_title' => 'Nos voitures disponibles à la location',
            'cars' => $cars,
-           'form' => $form->createView()
+           'form' => $form->createView(),
+           'is_admin' => false
         ]);
     }
 }

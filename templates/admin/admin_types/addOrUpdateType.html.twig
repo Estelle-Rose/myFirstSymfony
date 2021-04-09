@@ -31,18 +31,18 @@ Ajout d'une nouvelle catégorie
 </style>
 
 <div class="example-wrapper">
-  {{ form_start(form) }}
   <div class="row">
     <div class="col-12">
       {% for message in app.flashes('success') %}
       <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         {{ message }}
       </div>
       {% endfor %}
     </div>
+    {{ form_start(form) }}
     <!-- debut du formulaire  -->
     <!-- le formulaire / la personnalisation se fait ici avec bootstrap en renseignant le thème dans le dossier config/packages/twig.yaml -->
     <div class="col-6">

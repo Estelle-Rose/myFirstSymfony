@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Nos voitures disponibles{% endblock %}
-{% block pageTitle %} Nos voitures disponibles à la location{% endblock %}
+{% block title %} {{ page_title}}{% endblock %}
+{% block pageTitle %} {{page_title}}{% endblock %}
 
 {% block body %}
 <style>
@@ -14,6 +14,14 @@
 </style>
 
 <div class="example-wrapper">
+     {% if is_admin %}
+    <div class="row">
+
+        <div class="col-12 text-center pb-5">
+           <a href="{{path('add_cars')}}" class="btn btn-success mx-auto">Ajouter un véhicule</a>
+       </div>
+    </div>
+    {% endif %}
     {{ form_start(form) }}
     <div class="row no-gutters justify-content-between text-center mx-5 px-5">
       <div class="col-4">
@@ -26,13 +34,12 @@
       </div>
       <div class="col-2 pt-4">
           <input type="submit" value="rechercher" class="btn btn-info">
-
-      </div>
-         
+      </div>         
             {{ form_end(form) }}
 
     </div>
     <div class="row no-gutters">
+       
         {% for car in cars %}
         <div class="col-md-6">
             <div class="card py-2 my-3 mx-2">  
@@ -52,6 +59,16 @@
                             <p class="lead">Immatriculation : {{ car.immatriculation}}</p>                      
                         
                         </div>
+                        {% if is_admin %}
+                        <div class="d-flex">
+                            <a href="{{path('update_cars', {"id": car.id})}}" class="btn btn-warning mr-2">Modifier</a>
+                            <form action="{{path('delete_cars', {"id": car.id})}}" method="POST">
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <input type="hidden" name="_token" value="{{csrf_token('DELETE' ~ car.id)}}" />
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Voulez-vous vraiment supprimer ce véhicule ?')">Supprimer</button>
+                            </form>
+                        </div>
+                        {% endif %}
                     
                     </div>
 
