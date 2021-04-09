@@ -62,14 +62,38 @@
           >Epicerie</a
         >
         <div class="dropdown-menu">
-       
+        
           <a class="dropdown-item" href="{{ path('aliments') }}">Les Aliments</a>
           <a class="dropdown-item" href="{{ path('categories') }}">Les Catégories</a>
+      
            {% if  is_granted('ROLE_ADMIN')  %} 
           <div class="dropdown-divider"></div>          
           <a class="dropdown-item" href="{{ path('admin_aliments') }}">Admin Aliments</a>
           <a class="dropdown-item" href="{{ path('admin_categories') }}">Admin Catégories</a>         
           {% endif %}
+         
+         
+        
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          href="#"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Concession automobile</a
+        >
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{ path('accueil_cars') }}">Accueil</a>
+          {% if  is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %} 
+          <a class="dropdown-item" href="{{ path('cars') }}">Les Voitures</a>
+           {% endif %}
+            {% if  is_granted('ROLE_ADMIN')  %} 
+          <a class="dropdown-item" href="{{ path('admin_cars') }}">Gestion</a>
+           {% endif %}
          
          
         
@@ -85,6 +109,11 @@
       {%  else %}
       <li class="nav-item">
         <a class="nav-link" href="{{path('logout')}}">Déconnexion</a>     
+           
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="">{{ app.user.username}}</a>   
+           
       </li>
       {% endif %}
     </ul>

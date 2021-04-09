@@ -32,12 +32,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=5,max=20, minMessage="Le mot de passe doit être de 3 caractères minimum et 20 maximum",maxMessage="Le mot de passe doit être de 20 caractères maximum")
+     * @Assert\Length(min=5,max=20, minMessage="Le mot de passe doit être de 3 caractères minimum ",maxMessage="Le mot de passe doit être de 20 caractères maximum")
      */
     private $password;
     /**
      *
-     * @Assert\Length(min=5,max=20, minMessage="Le mot de passe doit être de 3 caractères minimum et 20 maximum",maxMessage="Le mot de passe doit être de 20 caractères maximum")
+     * @Assert\Length(min=5,max=20, minMessage="Le mot de passe doit être de 3 caractères minimum",maxMessage="Le mot de passe doit être de 20 caractères maximum")
      * @Assert\EqualTo(propertyPath="password", message="Les mots de passe ne sont pas identiques")
      */
     private $checkedPassword;
@@ -102,12 +102,7 @@ class User implements UserInterface
 
     public function setRoles(? string $roles): self
     {
-        if($roles === null) {
-            $this->roles = "ROLE_USER";
-        } else {
-            $this->roles = $roles;
-
-        }
+        $this->roles = $roles;        
         return $this;
     }
 }

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Concession Aranea Automobiles{% endblock %}
+{% block pageTitle %} Concession Aranea Automobiles{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper my-auto ">
+    <h1 class="text-center mb-5"> Bienvenue sur le site de la concession automobile Aranea</h1>
+    <h2 class="text-center mb-5"> Ce site vous permet de louer des voitures avec un abonnement mensuel</h2>
+    <p class=" text-warning text-center">Pour accéder à la liste des véhicules, vous devez vous 
+        <a href="{{path('login')}}" class="text-success"> connecter</a>
+    </p>
+   <div class="text-center">
+       <a href="{{path('signup')}}" class="btn btn-info">Pas encore de compte ?</a>
+
+   </div>
+        
+    
+</div>
+{% endblock %}
